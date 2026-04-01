@@ -1,0 +1,34 @@
+CREATE DATABASE placement_tracker;
+USE placement_tracker;
+
+CREATE TABLE Students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    branch VARCHAR(50),
+    cgpa DECIMAL(3,2)
+);
+
+CREATE TABLE Companies (
+    company_id INT PRIMARY KEY,
+    company_name VARCHAR(50),
+    package INT
+);
+
+CREATE TABLE Applications (
+    app_id INT PRIMARY KEY,
+    student_id INT,
+    company_id INT,
+    status VARCHAR(20),
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (company_id) REFERENCES Companies(company_id)
+);
+
+CREATE TABLE Offers (
+    offer_id INT PRIMARY KEY,
+    student_id INT,
+    company_id INT,
+    offer_date DATE,
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (company_id) REFERENCES Companies(company_id)
+);
+
