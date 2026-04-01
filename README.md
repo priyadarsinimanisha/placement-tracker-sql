@@ -91,7 +91,7 @@ Placement-Tracker-SQL/
 ---
 
 ## 📈 Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](Screenshots/dashboard.png.png)
 
 ## ▶️ How to Run
 
