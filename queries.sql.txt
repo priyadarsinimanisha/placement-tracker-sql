@@ -1,0 +1,6 @@
+SELECT * FROM Students;
+
+SELECT s.name, c.company_name
+FROM Students s
+JOIN Offers o ON s.student_id = o.student_id
+JOIN Companies c ON o.company_id = c.company_id;
