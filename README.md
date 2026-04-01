@@ -86,7 +86,8 @@ Placement-Tracker-SQL/
 ├── queries.sql
 ├── README.md
 ```
-
+## 📊 ER Diagram
+![ER Diagram](screenshots/er-diagram.png)
 ---
 
 ## ▶️ How to Run
