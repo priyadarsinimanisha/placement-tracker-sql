@@ -1,55 +1,43 @@
-# 🎯 Placement Tracker System (SQL + Dashboard)
+# 🎯 Placement Tracker System (SQL Project)
 
 ## 🚀 Overview
 
 A **Placement Tracker System** built using SQL to manage and analyze student placement data.
-This project tracks **students, companies, applications, and job offers**, and provides insights through SQL queries and a dashboard.
+This project focuses on handling **students, companies, job applications, and offers** while performing analytical queries to extract meaningful insights.
 
 ---
 
 ## 🧩 Features
 
-* 📌 Track student applications to companies
-* 📊 Analyze placement statistics (selection rate, highest package)
+* 📌 Track student applications and placement status
+* 📊 Analyze placement statistics
 * 🧠 Identify top-performing students
-* 📈 Visualize insights using Power BI dashboard
+* 💼 Monitor company hiring trends
 
 ---
 
 ## 🧱 Database Schema
 
-### 📂 Tables
+### 📂 Tables Used
 
-* **Students** → Stores student details
-* **Companies** → Stores company details
-* **Applications** → Tracks job applications
-* **Offers** → Stores placement offers
-
----
-
-## 🔗 ER Diagram
-
-![ER Diagram](screenshots/er-diagram.png)
-
----
-
-## 📊 Dashboard Preview
-
-![Dashboard](screenshots/dashboard.png)
+* **Students** → Stores student details (name, branch, CGPA)
+* **Companies** → Stores company details (name, package)
+* **Applications** → Tracks application status (Applied, Selected, Rejected)
+* **Offers** → Stores final job offers
 
 ---
 
 ## 🛠️ Tech Stack
 
 * 🗄️ SQL (MySQL)
-* 📊 Power BI
-* 📁 GitHub for version control
+* 💻 Database Design
+* 📁 Version Control using GitHub
 
 ---
 
 ## 🔍 Key SQL Queries
 
-### 1. Students Placed
+### 📌 Students who got placed
 
 ```sql
 SELECT DISTINCT s.name
@@ -57,7 +45,17 @@ FROM Students s
 JOIN Offers o ON s.student_id = o.student_id;
 ```
 
-### 2. Highest Package Company
+### 📌 Students not placed
+
+```sql
+SELECT name
+FROM Students
+WHERE student_id NOT IN (
+    SELECT student_id FROM Offers
+);
+```
+
+### 📌 Highest package company
 
 ```sql
 SELECT company_name, package
@@ -66,7 +64,7 @@ ORDER BY package DESC
 LIMIT 1;
 ```
 
-### 3. Selection Rate per Company
+### 📌 Selection rate per company
 
 ```sql
 SELECT c.company_name,
@@ -87,13 +85,6 @@ Placement-Tracker-SQL/
 ├── data.sql
 ├── queries.sql
 ├── README.md
-│
-├── screenshots/
-│   ├── er-diagram.png
-│   ├── dashboard.png
-│
-├── dashboard/
-│   ├── placement_dashboard.pbix
 ```
 
 ---
@@ -101,8 +92,8 @@ Placement-Tracker-SQL/
 ## ▶️ How to Run
 
 1. Install MySQL and open SQL editor
-2. Run `schema.sql`
-3. Run `data.sql`
+2. Run `schema.sql` to create tables
+3. Run `data.sql` to insert data
 4. Execute queries from `queries.sql`
 
 ---
@@ -110,35 +101,31 @@ Placement-Tracker-SQL/
 ## 💡 Key Concepts Used
 
 * Joins (INNER, LEFT)
-* Aggregations (SUM, COUNT, AVG)
+* Aggregation (SUM, COUNT, AVG)
 * GROUP BY & HAVING
 * Subqueries
-* Data visualization
+* Relational database design
 
 ---
 
 ## 🎯 Use Case
 
-This system helps colleges and students:
+This system helps:
 
-* Track placement progress
+* Track student placement progress
 * Analyze company performance
-* Monitor student success
+* Evaluate hiring trends
 
 ---
 
 ## 🧠 What I Learned
 
-* Designing relational databases
+* Designing normalized database schemas
 * Writing optimized SQL queries
-* Building real-world analytics dashboards
+* Solving real-world data problems
 
 ---
 
-## 📬 Contact
+## ⭐ Show Your Support
 
-Feel free to connect for feedback or collaboration!
-
----
-
-⭐ If you like this project, give it a **star** on GitHub!
+If you found this project helpful, consider giving it a ⭐ on GitHub!
