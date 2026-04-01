@@ -90,6 +90,9 @@ Placement-Tracker-SQL/
 ![ER Diagram](Screenshots/er-diagram.png.png)
 ---
 
+## 📈 Dashboard
+![Dashboard](screenshots/dashboard.png)
+
 ## ▶️ How to Run
 
 1. Install MySQL and open SQL editor
